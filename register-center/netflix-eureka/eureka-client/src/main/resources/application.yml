@@ -1,0 +1,20 @@
+server:
+  # 服务端口
+  port: 27002
+
+spring:
+  application:
+    # 应用名称
+    name: eureka-client
+
+eureka:
+  instance:
+    # 设置在eureka显示的实例唯一ID
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    # Eureka服务端地址
+    service-url:
+      # 如果服务注册中心为高可用集群时，多个注册中心地址以逗号分隔。
+      defaultZone: http://eureka-a:27000/eureka,http://eureka-b:27001/eureka
+
+
